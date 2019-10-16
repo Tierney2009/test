@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    
+    function someFunction(obj, val) {
+        let arr = [];
+        function find(obj, val, str) {
+
+            return Object
+                .keys(obj)
+                .filter(s => {
+                    if (Object.prototype.toString.call(obj[s]) === '[object Object]') {
+                        // console.log(s)
+                        return find(obj[s], val, s + '.');//利用了函数递归
+                    } //运用ES6 的filter过滤器方法判断参数s中的key是否为对象
+                    // console.log(s)
+                    return obj[s].toString().indexOf(val) !== -1//找到对象中的值
+                })
+                .forEach(s => {
+                    arr.push(str + s)
+                })//遍历对象再组合为一个新数组
+        }
+        find(obj, val, '');
+        return arr;
+    }
+    console.log(someFunction(
+        {
+            name: 'wang',
+            age: 20,
+        },
+        20,
+    ));
+
+    console.log(someFunction(
+        {
+            name: 'wang',
+            age: 20,
+            address: {
+                city: 'beiji',
+                country: 'china',
+            },
+        },
+        'i',
+    ));
+
+    console.log(someFunction(
+        {
+            name: 'wang',
+            age: 20,
+        },
+        40,
+    ))
+
+</script>
