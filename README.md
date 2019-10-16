@@ -30,7 +30,7 @@
             age: 20,
         },
         20,
-    ));
+    ));// age
 
     console.log(someFunction(
         {
@@ -42,7 +42,7 @@
             },
         },
         'i',
-    ));
+    ));// address.city address.country
 
     console.log(someFunction(
         {
@@ -50,4 +50,4 @@
             age: 20,
         },
         40,
-    ))
+    ))// []
