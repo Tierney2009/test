@@ -2,10 +2,9 @@
 假设我们现在有一个js的对象A，我们需要记录对象A自身属性的值中包含变量b的属性的出现位置，并已数组的形式返回,如果不包含直接返回[]：
 
 
-  function someFunction(obj, val) {
+    function someFunction(obj, val) {
         let arr = [];
         function find(obj, val, str) {
-
             return Object
                 .keys(obj)
                 .filter(s => {
@@ -23,6 +22,7 @@
         find(obj, val, '');
         return arr;
     }
+    
     
 ## 然后再调用
     console.log(someFunction(
