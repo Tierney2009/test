@@ -13,6 +13,10 @@
                         return find(obj[s], val, s + '.');//利用了函数递归
                     } //运用ES6 的filter过滤器方法判断参数s中的key是否为对象
                     // console.log(s)
+                         else if(obj[s] instanceof Array)//判断是否为数组
+                    {
+                        return find(obj[s],val,s+',');
+                    }
                     return obj[s].toString().indexOf(val) !== -1//找到对象中的值
                 })
                 .forEach(s => {
